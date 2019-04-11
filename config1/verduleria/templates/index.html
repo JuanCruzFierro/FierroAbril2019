@@ -1,0 +1,32 @@
+<html>
+	<head>
+	<title>Verduleria</title>
+
+	<meta charset="utf-8">
+	</head>
+
+
+	<body>
+		<h1>Libreria</h1>
+
+		<div>
+
+			{% for e in todas_las_ventas %}
+
+			<form method="POST" action="{% url 'clientes' cliente_id=e.cliente.id  %}">
+					{% csrf_token %}
+
+					<input type="submit" value="{{ e.cliente }}">
+					<!-- boton -->
+
+			</form>
+
+		 		<p> {{ e.fechaCompra }} - {{ e.cliente }} - {{ e.precio }}</p>
+				
+
+			{% endfor %}
+
+		</div>
+
+	</body>
+</html>
